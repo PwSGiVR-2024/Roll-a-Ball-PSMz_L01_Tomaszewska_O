@@ -8,23 +8,29 @@ public class Collectible : MonoBehaviour
 
     public Text scoreText;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(10*Time.deltaTime, 0, 0);
     }
+
     void OnTriggerEnter(Collider collision)
     {
-    
-        collision.gameObject.GetComponent<MovementController>().CollectScore();
-        gameObject.SetActive(false);
-        scoreText.text = "Score: " + collision.gameObject.GetComponent<MovementController>().score;
 
+        MovementController controller = collision.gameObject.GetComponent<MovementController>();
+        if (controller != null)
+        {
+            controller.CollectScore();
+            gameObject.SetActive(false);
+
+            if (scoreText != null)
+            {
+                scoreText.text = "Score: " + controller.score;
+            }
+        }
     }
 }

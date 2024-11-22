@@ -6,24 +6,22 @@ public class MovementController : MonoBehaviour
     public int score = 0;
 
     private Rigidbody rb;
-
+ 
     public
         float thrust = 5;
 
     public void CollectScore()
     {
         score += 1;
+        Debug.Log("Zdobyles punkt! Liczba punktow: " + score);
     }
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         if (Input.GetKey(KeyCode.S))
