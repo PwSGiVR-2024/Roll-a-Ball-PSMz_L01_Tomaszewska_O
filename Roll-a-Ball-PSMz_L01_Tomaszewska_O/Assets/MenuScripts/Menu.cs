@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     public void ShowSettings()
@@ -16,6 +17,6 @@ public class Menu : MonoBehaviour
 
     public void QuitGame()
     {
-
+        Application.Quit();
     }
 }
