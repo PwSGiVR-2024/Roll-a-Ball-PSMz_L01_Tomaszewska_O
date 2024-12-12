@@ -6,8 +6,7 @@ public class MovementController : MonoBehaviour
 
     private Rigidbody rb;
 
-    public
-        float thrust = 7;
+    private float thrust = 7;
 
     void Start()
     {

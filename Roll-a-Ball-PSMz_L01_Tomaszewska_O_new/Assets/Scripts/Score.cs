@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
@@ -30,6 +31,12 @@ public class Score : MonoBehaviour
         {
             winText.gameObject.SetActive(true);
             winText.text = "You win!";
+            NextScene();
         }
+    }
+    private void NextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }
